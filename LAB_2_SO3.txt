@@ -1,0 +1,75 @@
+Leanny Grullon Fortuna
+2025-0211
+Onel Pelgrino
+
+
+
+PRACTICA 1
+
+sudo dnf update -y
+sudo dnf upgrade -y
+
+sudo dnf repolist
+
+sudo dnf search bashtop
+
+sudo dnf install git make gcc -y
+
+git clone https://github.com/aristocratos/bashtop.git
+
+cd bashtop
+
+sudo make install
+
+bashtop
+
+sudo make uninstall
+
+sudo dnf autoremove -y
+
+
+
+
+PRACTICA 2
+
+crontab -e
+
+0 23 * * * /usr/bin/dnf -y update
+0 3 * * 0 /usr/sbin/reboot
+
+crontab -l
+
+sudo systemctl enable --now atd
+
+ls /tmp
+
+echo "rm -rf /tmp/*" | at now + 1 minute
+
+atq
+
+ls /tmp
+
+
+
+PRACTICA 3
+
+
+
+lsblk
+
+sudo fdisk /dev/nvme0n1
+dentro: n → p → enter → enter → w
+
+sudo mkfs.ext4 /dev/nvme0n1p1
+
+mkdir -p ~/Escritorio/disco20gb
+
+sudo mount /dev/nvme0n1p1 ~/Escritorio/disco20gb
+
+touch ~/Escritorio/disco20gb/AdrianAlcantara.txt
+
+sudo umount ~/Escritorio/disco20gb
+
+sudo mount /dev/nvme0n1p1 /mnt
+
+ls /mnt
