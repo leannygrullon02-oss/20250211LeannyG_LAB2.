@@ -1,0 +1,36 @@
+Practica 3 Lab IV
+
+sudo dnf install cups cups-pdf -y
+sudo dnf install epel-release -y
+sudo dnf install cups-pdf -y
+
+sudo systemctl enable cups
+sudo systemctl start cups
+sudo systemctl status cups
+
+sudo cupsctl --remote-admin --remote-any --share-printers
+
+sudo firewall-cmd --permanent --add-service=ipp
+sudo firewall-cmd --permanent --add-port=631/tcp
+sudo firewall-cmd --reload
+
+sudo usermod -aG sys lfortuns
+
+ip a
+
+sudo cupsenable Cups-PDF
+sudo cupsaccept Cups-PDF
+sudo lpadmin -d Cups-PDF
+
+lpstat -p -d
+lpstat -p Cups-PDF
+
+echo "Prueba de impresión" | lp -d Cups-PDF
+
+sudo find / -iname "*.pdf" -mmin -5 2>/dev/null
+ls -la /home/lfortuns/Escritorio/
+
+sudo journalctl -u cups -n 30 --no-pager
+
+sudo ls -la /var/spool/cups-pdf/ANONYMOUS/
+sudo find / -iname "*Ensayo*" 2>/dev/null
