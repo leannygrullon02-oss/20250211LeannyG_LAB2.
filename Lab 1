@@ -1,0 +1,13 @@
+sudo dnf install -y gnupg2
+mkdir Cifrado
+cd Cifrado/
+echo "Esto es un mensaje secreto" > Cifrado.txt
+cat Cifrado.txt
+gpg -c Cifrado.txt
+ls -l Cifrado.txt
+ls
+cat Cifrado.txt
+cat Cifrado.txt.gpg
+gpg -d Cifrado.txt.gpg > Descifrar.txt
+ls
+cat Descifrar.txt
